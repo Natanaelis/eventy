@@ -50,6 +50,11 @@ export default {
           title: 'Event',
           to: '/event',
         },
+        {
+          icon: 'mdi-account-multiple',
+          title: 'Znajomi',
+          to: '/znajomi',
+        },
       ],
       right: true,
       title: 'Eventy',
