@@ -13,7 +13,7 @@
       src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
     ></v-img>
     <nuxt-link :to="{ name: 'event-id', params: { id: item.id } }">
-      <v-card-title @click="onClick">{{ title }}</v-card-title>
+      <v-card-title>{{ title }}</v-card-title>
     </nuxt-link>
     <v-divider class="mx-4"></v-divider>
 
@@ -33,6 +33,8 @@
       <v-btn color="deep-purple lighten-2" text @click="reserve">
         Dołącz
       </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn color="deep-purple lighten-2" text @click="invite"> Zaproś </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -58,11 +60,15 @@ export default {
   methods: {
     reserve() {
       this.loading = true
-
       setTimeout(() => (this.loading = false), 2000)
     },
-    onClick() {
-      console.log('Klikniecie na event')
+    invite() {
+      this.$router.push({
+        name: 'znajomi-zaproszenie-id',
+        params: {
+          id: this.item.id,
+        },
+      })
     },
   },
 }
