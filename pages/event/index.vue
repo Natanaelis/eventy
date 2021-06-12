@@ -1,16 +1,14 @@
 <template>
   <v-row>
     <v-col class="text-center">
-      <EventAdd />
       <h1 v-if="city && date">
         Wyniki wyszukiwania dla miasta: {{ city }} w dniu {{ date }}
       </h1>
-      <EventItem
-        v-for="item in filteredItems"
-        :key="item.id"
-        :title="item.title"
-        :item="item"
-      />
+      <v-row>
+        <v-col v-for="item in filteredItems" :key="item.id">
+          <EventItem :title="item.title" :item="item" />
+        </v-col>
+      </v-row>
       <v-alert
         v-if="!filteredItems.length"
         border="right"
