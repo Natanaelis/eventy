@@ -37,13 +37,18 @@ export default {
       return this.$route.query.date
     },
     filteredItems() {
+      let filtered = this.items
       if (this.date) {
-        const filtered = this.items.filter((item) => {
+        filtered = filtered.filter((item) => {
           return item.date === this.date
         })
-        return filtered
       }
-      return this.items
+      if (this.city) {
+        filtered = filtered.filter((item) => {
+          return item.city.toLowerCase() === this.city.toLowerCase()
+        })
+      }
+      return filtered
     },
   },
 }
