@@ -1,6 +1,7 @@
 <template>
   <v-row>
     <v-col class="text-center">
+      <EventAdd />
       <EventItem
         v-for="item in items"
         :key="item.id"
